@@ -1,0 +1,53 @@
+conky.config = {
+	alignment = 'top_right',
+	background = true,
+        draw_shades = false, 
+        default_color = 'f8f8f2',
+        own_window_colour = '282a36',
+	cpu_avg_samples = 2,
+	double_buffer = true,
+	font = 'Bitstream Vera Sans:size=12',
+	gap_x = 10,
+	gap_y = 40,
+	minimum_width = 200,
+	no_buffers = true,
+	own_window = true,
+	own_window_type = 'override',
+        own_window_argb_visual = true,
+        own_window_argb_value = 205,
+	update_interval = 1.0,
+	use_xft = true,
+}
+conky.text = [[
+${alignc}Kernel
+${voffset -8}$hr{voffset}
+$kernel
+${voffset -10}
+${alignc}CPU
+${voffset -8}$hr{voffset}
+Tempature: ${execi 10 sensors | grep 'Core 0' | cut -c14-20}°C
+CPU:${execi 100000 cat /proc/cpuinfo | grep -m 1 'model name' | sed -e 's/model name.*: //' | sed -e 's/(tm)//'}
+Frequency:$color $freq_g GHz
+Core 1:$color ${cpu cpu1}%$alignr${cpubar cpu1 6,250}
+Core 2:$color ${cpu cpu2}%$alignr${cpubar cpu2 6,250}
+Core 3:$color ${cpu cpu3}%$alignr${cpubar cpu3 6,250}
+Core 4:$color ${cpu cpu4}%$alignr${cpubar cpu4 6,250}
+${voffset -10}
+${top name 1} ${alignr}${color}${top cpu 1} %
+${top name 2} ${alignr}${color}${top cpu 2} %
+${top name 3} ${alignr}${color}${top cpu 3} %
+${top name 4} ${alignr}${color}${top cpu 4} %
+${voffset -10}
+${alignc}RAM
+${voffset -8}$hr${voffset 10}
+RAM:$color ${membar 6}
+$alignr $mem / $memmax$color [ $memperc% ]
+Swap:$color ${swapbar 6}
+$alignr $swap / $swapmax$color [ $swapperc% ]
+${voffset -10}
+${top_mem name 1} ${alignr}${color}${top_mem mem_res 1}
+${top_mem name 2} ${alignr}${color}${top_mem mem_res 2}
+${top_mem name 3} ${alignr}${color}${top_mem mem_res 3}
+${top_mem name 4} ${alignr}${color}${top_mem mem_res 4}
+${voffset -8}$hr{voffset}
+]]

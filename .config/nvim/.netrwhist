@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =1
+let g:netrw_dirhist_1='/home/ilia/polybar-themes/polybar-3'
+let g:netrw_dirhist_0='/home/ilia/polybar-themes'
+let g:netrw_dirhist_9='/home/ilia/.config/polybar'
+let g:netrw_dirhist_8='/home/ilia/.local/share/nvim/plugged/neosnippet-snippets'
+let g:netrw_dirhist_7='/home/ilia/whyred/cache_git/pmaports/device/linux-xiaomi-whyred'
+let g:netrw_dirhist_6='/home/ilia/patch/whyred-3b0ac3a7b99910c6131b87e0f30971d3796046c9/drivers/usb/gadget/function'
+let g:netrw_dirhist_5='/home/ilia/code/device-event/android_kernel_xiaomi_sdm660-c6a95dfbafd7055cd25d91ae17073a4df2c18df8/drivers/bluetooth'
+let g:netrw_dirhist_4='/home/ilia'
+let g:netrw_dirhist_3='/home/ilia/.tmux'
+let g:netrw_dirhist_2='/home/ilia'
