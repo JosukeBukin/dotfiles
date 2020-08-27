@@ -1,0 +1,113 @@
+// Dracula colo2s
+* {
+    background: 	rgba ( 40, 42, 54, 70 % );
+    current-line: 	rgba ( 68, 71, 90, 70 % );
+    selection: 	rgba ( 68, 71, 90, 70 % );
+    foreground: 	rgba ( 248, 248, 242, 100 % );
+    comment: 	rgba ( 98, 114, 164, 70 % );
+    cyan: 	rgba ( 139, 233, 253, 70 % );
+    green: 	rgba ( 80, 250, 123, 70 % );
+    orange: 	rgba ( 255, 184, 108, 70 % );
+    pink: 	rgba ( 255, 121, 198, 70 % );
+    purple: 	rgba ( 189, 147, 249, 70 % );
+    red: 	rgba ( 255, 85, 85, 70 % );
+    yellow: 	rgba ( 241, 250, 140, 70 % );
+}
+* {
+    selected-normal-background:     @cyan;
+    normal-background:              @background;
+    normal-foreground:              @foreground;
+    alternate-normal-background:    @background;
+    alternate-normal-foreground:    @foreground;
+    selected-normal-foreground:     @normal-background;
+    urgent-foreground:              @red;
+    urgent-background:              @normal-background;
+    alternate-urgent-background:    @urgent-background;
+    alternate-urgent-foreground:    @foreground;
+    selected-active-foreground:     @foreground;
+    selected-urgent-background:     @normal-background;
+    alternate-active-background:    @normal-background;
+    alternate-active-foreground:    @selected-active-foreground;
+    alternate-active-background:    @selected-active-background;
+    border-color:                   @background;
+    separatorcolor:                 @background;
+    spacing: 2;
+    background-color: @normal-background;
+}
+#window {
+    border:           3;
+    padding:          9;
+}
+#mainbox {
+    background-color: @normal-background;
+    border:  0;
+    padding: 2;
+}
+#textbox {
+    text-color: @foreground;
+}
+#element {
+    border:  0;
+    padding: 1px ;
+}
+#element.normal.normal {
+    background-color: @normal-background;
+    text-color:       @normal-foreground;
+}
+#element.normal.urgent {
+    background-color: @urgent-background;
+    text-color:       @urgent-foreground;
+}
+#element.normal.active {
+    background-color: @active-background;
+    text-color:       @active-foreground;
+}
+#element.selected.normal {
+    background-color: @selected-normal-background;
+    text-color:       @selected-normal-foreground;
+}
+#element.selected.urgent {
+    background-color: @selected-urgent-background;
+    text-color:       @selected-urgent-foreground;
+}
+#element.selected.active {
+    background-color: @selected-active-background;
+    text-color:       @selected-active-foreground;
+}
+#element.alternate.normal {
+    background-color: @alternate-normal-background;
+    text-color:       @alternate-normal-foreground;
+}
+#element.alternate.urgent {
+    background-color: @alternate-urgent-background;
+    text-color:       @alternate-urgent-foreground;
+}
+#element.alternate.active {
+    background-color: @alternate-active-background;
+    text-color:       @alternate-active-foreground;
+}
+#scrollbar {
+    border:       0;
+}
+#button.selected {
+    background-color: @selected-normal-background;
+    text-color:       @selected-normal-foreground;
+}
+#inputbar {
+    spacing:    1;
+    text-color: @normal-foreground;
+    background-color: @normal-background;
+    padding:    1px ;
+}
+#case-indicator {
+    spacing:    0;
+    text-color: @normal-background;
+}
+#entry {
+    spacing:    0;
+    text-color: @normal-foreground;
+}
+#prompt {
+    spacing:    0;
+    text-color: @normal-foreground;
+}
