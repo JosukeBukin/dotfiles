@@ -1,585 +1,425 @@
-;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
-;;
-;;	    ____        __      __              
-;;	   / __ \____  / /_  __/ /_  ____ ______
-;;	  / /_/ / __ \/ / / / / __ \/ __ `/ ___/
-;;	 / ____/ /_/ / / /_/ / /_/ / /_/ / /    
-;;	/_/    \____/_/\__, /_.___/\__,_/_/     
-;;	              /____/                    
-;;
-;; Created By Aditya Shakya @adi1090x
-;;
-;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
-
-;; Global WM Settings
-
-[global/wm]
-; Adjust the _NET_WM_STRUT_PARTIAL top value
-; Used for top aligned bars
-margin-bottom = 0
-
-; Adjust the _NET_WM_STRUT_PARTIAL bottom value
-; Used for bottom aligned bars
-margin-top = 0
-
-;; Bar Settings
-
-[bar/main]
-; Use either of the following command to list available outputs:
-; If unspecified, the application will pick the first one it finds.
-; $ polybar -m | cut -d ':' -f 1
-; $ xrandr -q | grep " connected" | cut -d ' ' -f1
-monitor =
-
-; Use the specified monitor as a fallback if the main one is not found.
-monitor-fallback =
-
-; Require the monitor to be in connected state
-; XRandR sometimes reports my monitor as being disconnected (when in use)
-monitor-strict = false
-
-; Tell the Window Manager not to configure the window.
-; Use this to detach the bar if your WM is locking its size/position.
-override-redirect = false
-
-; Put the bar at the bottom of the screen
-bottom = false
-
-; Prefer fixed center position for the `modules-center` block
-; When false, the center position will be based on the size of the other blocks.
-fixed-center = true
-
-; Dimension defined as pixel value (e.g. 35) or percentage (e.g. 50%),
-; the percentage can optionally be extended with a pixel offset like so:
-; 50%:-10, this will result in a width or height of 50% minus 10 pixels
-width = 100%
-height = 26
-
-; Offset defined as pixel value (e.g. 35) or percentage (e.g. 50%)
-; the percentage can optionally be extended with a pixel offset like so:
-; 50%:-10, this will result in an offset in the x or y direction 
-; of 50% minus 10 pixels
-offset-x = 0
-offset-y = 0
-
-; Background ARGB color (e.g. #f00, #ff992a, #ddff1023)
-background = ${color.bg}
-
-; Foreground ARGB color (e.g. #f00, #ff992a, #ddff1023)
-foreground = ${color.fg}
-
-; Background gradient (vertical steps)
-;   background-[0-9]+ = #aarrggbb
-;;background-0 = 
-
-; Value used for drawing rounded corners
-; Note: This shouldn't be used together with border-size because the border 
-; doesn't get rounded
-; Individual top/bottom values can be defined using:
-;   radius-{top,bottom}
-radius-top = 0.0
-radius-bottom = 0.0
-
-; Under-/overline pixel size and argb color
-; Individual values can be defined using:
-;   {overline,underline}-size
-;   {overline,underline}-color
-;;overline-size = 0
-;;overline-color = ${color.ac}
-
-; Values applied to all borders
-; Individual side values can be defined using:
-;   border-{left,top,right,bottom}-size
-;   border-{left,top,right,bottom}-color
-; The top and bottom borders are added to the bar height, so the effective
-; window height is:
-;   height + border-top-size + border-bottom-size
-; Meanwhile the effective window width is defined entirely by the width key and
-; the border is placed withing this area. So you effectively only have the
-; following horizontal space on the bar:
-;   width - border-right-size - border-left-size
-;;border-size = 2
-;;border-color = ${color.ac}
-
-; Number of spaces to add at the beginning/end of the bar
-; Individual side values can be defined using:
-;   padding-{left,right}
-padding = 3
-
-; Number of spaces to add before/after each module
-; Individual side values can be defined using:
-;   module-margin-{left,right}
-module-margin-left = 3
-module-margin-right = 3
-
-; Fonts are defined using <font-name>;<vertical-offset>
-; Font names are specified using a fontconfig pattern.
-;   font-0 = NotoSans-Regular:size=8;2
-;   font-1 = MaterialIcons:size=10
-;   font-2 = Termsynu:size=8;-1
-;   font-3 = FontAwesome:size=10
-; See the Fonts wiki page for more details
-
-font-0 = "Droid Sans:size=9:weight=bold;2"
-font-1 = "Iosevka Nerd Font:size=12;2"
-
-; Modules are added to one of the available blocks
-;   modules-left = cpu ram
-;   modules-center = xwindow xbacklight
-;   modules-right = ipc clock
-
-modules-center = date
-modules-right = style alsa network battery sysmenu
-
-; The separator will be inserted between the output of each module
-separator =
-
-; This value is used to add extra spacing between elements
-; @deprecated: This parameter will be removed in an upcoming version
-spacing = 0
-
-; Opacity value between 0.0 and 1.0 used on fade in/out
-dim-value = 1.0
-
-; Value to be used to set the WM_NAME atom
-; If the value is empty or undefined, the atom value
-; will be created from the following template: polybar-[BAR]_[MONITOR]
-; NOTE: The placeholders are not available for custom values
-wm-name = 
-
-; Locale used to localize various module data (e.g. date)
-; Expects a valid libc locale, for example: sv_SE.UTF-8
-locale = 
-
-; Position of the system tray window
-; If empty or undefined, tray support will be disabled
-; NOTE: A center aligned tray will cover center aligned modules
-;
-; Available positions:
-;   left
-;   center
-;   right
-;   none
-tray-position = none
-
-; If true, the bar will not shift its
-; contents when the tray changes
-tray-detached = false
-
-; Tray icon max size
-tray-maxsize = 16
-
-; DEPRECATED! Since 3.3.0 the tray always uses pseudo-transparency
-; Enable pseudo transparency
-; Will automatically be enabled if a fully transparent
-; background color is defined using `tray-background`
-tray-transparent = false
-
-; Background color for the tray container 
-; ARGB color (e.g. #f00, #ff992a, #ddff1023)
-; By default the tray container will use the bar
-; background color.
-tray-background = ${root.background}
-
-; Tray offset defined as pixel value (e.g. 35) or percentage (e.g. 50%)
-tray-offset-x = 0
-tray-offset-y = 0
-
-; Pad the sides of each tray icon
-tray-padding = 0
-
-; Scale factor for tray clients
-tray-scale = 1.0
-
-; Restack the bar window and put it above the
-; selected window manager's root
-;
-; Fixes the issue where the bar is being drawn
-; on top of fullscreen window's
-;
-; Currently supported WM's:
-;   bspwm
-;   i3 (requires: `override-redirect = true`)
-; wm-restack =
-
-; Set a DPI values used when rendering text
-; This only affects scalable fonts
-; dpi = 
-
-; Enable support for inter-process messaging
-; See the Messaging wiki page for more details.
-enable-ipc = true
-
-; Fallback click handlers that will be called if
-; there's no matching module handler found.
-click-left = 
-click-middle = 
-click-right =
-scroll-up =
-scroll-down =
-double-click-left =
-double-click-middle =
-double-click-right =
-
-; Requires polybar to be built with xcursor support (xcb-util-cursor)
-; Possible values are:
-; - default   : The default pointer as before, can also be an empty string (default)
-; - pointer   : Typically in the form of a hand
-; - ns-resize : Up and down arrows, can be used to indicate scrolling
-cursor-click = 
-cursor-scroll = 
-
-;; WM Workspace Specific
-
-; bspwm
-;;scroll-up = bspwm-desknext
-;;scroll-down = bspwm-deskprev
-;;scroll-up = bspc desktop -f prev.local
-;;scroll-down = bspc desktop -f next.local
-
-;i3
-;;scroll-up = i3wm-wsnext
-;;scroll-down = i3wm-wsprev
-;;scroll-up = i3-msg workspace next_on_output
-;;scroll-down = i3-msg workspace prev_on_output
-
-;openbox
-;awesome
-;etc
-
-;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
-
-;; Application Settings
-
-[settings]
-; The throttle settings lets the eventloop swallow up til X events
-; if they happen within Y millisecond after first event was received.
-; This is done to prevent flood of update event.
-;
-; For example if 5 modules emit an update event at the same time, we really
-; just care about the last one. But if we wait too long for events to swallow
-; the bar would appear sluggish so we continue if timeout
-; expires or limit is reached.
-throttle-output = 5
-throttle-output-for = 10
-
-; Time in milliseconds that the input handler will wait between processing events
-throttle-input-for = 30
-
-; Reload upon receiving XCB_RANDR_SCREEN_CHANGE_NOTIFY events
-screenchange-reload = false
-
-; Compositing operators
-; @see: https://www.cairographics.org/manual/cairo-cairo-t.html#cairo-operator-t
-compositing-background = source
-compositing-foreground = over
-compositing-overline = over
-compositing-underline = over
-compositing-border = over
-
-; Define fallback values used by all module formats
-format-foreground = 
-format-background = 
-format-underline =
-format-overline =
-format-spacing =
-format-padding =
-format-margin =
-format-offset =
-
-; Enables pseudo-transparency for the bar
-; If set to true the bar can be transparent without a compositor.
-pseudo-transparency = false
-
-;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
-;;
-;;	   ______      __               
-;;	  / ____/___  / /___  __________
-;;	 / /   / __ \/ / __ \/ ___/ ___/
-;;	/ /___/ /_/ / / /_/ / /  (__  ) 
-;;	\____/\____/_/\____/_/  /____/  
-;;
-;; Created By Aditya Shakya @adi1090x
-;;
-;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
-
-[color]
-
-;; Active Colors
-bg = #2e3440
-fg = #EAEAEA
-fg-alt = #9C9C9C
-
-trans = #00000000
-white = #FFFFFF
-black = #000000
-
-;; Material Colors
-
-red = #e53935
-pink = #d81b60
-purple = #8e24aa
-deep-purple = #5e35b1
-indigo = #3949ab
-blue = #1e88e5
-light-blue = #039be5
-cyan = #00acc1
-teal = #00897b
-green = #43a047
-light-green = #7cb342
-lime = #c0ca33
-yellow = #fdd835
-amber = #ffb300
-orange = #fb8c00
-deep-orange = #f4511e
-brown = #6d4c41
-grey = #757575
-blue-gray = #546e7a
-
-;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
-;;
-;;	    __  ___          __      __         
-;;	   /  |/  /___  ____/ /_  __/ /__  _____
-;;	  / /|_/ / __ \/ __  / / / / / _ \/ ___/
-;;	 / /  / / /_/ / /_/ / /_/ / /  __(__  ) 
-;;	/_/  /_/\____/\__,_/\__,_/_/\___/____/  
-;;
-;; Created By Aditya Shakya @adi1090x
-;;
-;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
-
-[module/alsa]
-type = internal/alsa
-
-; You can find the different card numbers in `/proc/asound/cards`
-;;master-soundcard = default
-;;speaker-soundcard = default
-;;headphone-soundcard = default
-
-; Default: Master
-;;master-mixer = Master
-
-; Optionally define speaker and headphone mixers
-; Default: none
-;;speaker-mixer = Speaker
-; Default: none
-;;headphone-mixer = Headphone
-
-; Default: 5
-;;interval = 5
-
-; Available tags:
-;   <label-volume> (default)
-;   <ramp-volume>
-;   <bar-volume>
-format-volume = <ramp-volume>
-
-; Available tags:
-;   <label-muted> (default)
-;   <ramp-volume>
-;   <bar-volume>
-;format-muted = <label-muted>
-
-; Available tokens:
-;   %percentage% (default)
-label-volume = %percentage%%
-
-; Available tokens:
-;   %percentage% (default
-label-muted = ﱝ
-label-muted-foreground = ${color.fg-alt}
-
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
-ramp-volume-3 = 
-
-;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
-
-[module/battery]
-type = internal/battery
-
-full-at = 99
-
-; $ ls -1 /sys/class/power_supply/
-battery = BAT1
-adapter = ACAD
-
-poll-interval = 2
-time-format = %H:%M
-
-; Available tags:
-;   <label-charging> (default)
-;   <bar-capacity>
-;   <ramp-capacity>
-;   <animation-charging>
-format-charging = <animation-charging>
-
-; Available tags:
-;   <label-discharging> (default)
-;   <bar-capacity>
-;   <ramp-capacity>
-;   <animation-discharging>
-format-discharging = <ramp-capacity>
-
-; Available tags:
-;   <label-full> (default)
-;   <bar-capacity>
-;   <ramp-capacity>
-;format-full = <ramp-capacity> <label-full>
-
-; Available tokens:
-;   %percentage% (default)
-;   %time%
-;   %consumption% (shows current charge rate in watts)
-label-charging = %percentage%%
-
-; Available tokens:
-;   %percentage% (default)
-;   %time%
-;   %consumption% (shows current discharge rate in watts)
-label-discharging = %percentage%%
-
-; Available tokens:
-;   %percentage% (default)
-;label-full = Fully Charged
-label-full = 
-label-full-foreground = ${color.green} 
-
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
-
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
-
-; Framerate in milliseconds
-animation-charging-framerate = 750
-
-;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
-
-[module/date]
-type = internal/date
-
-interval = 1.0
-
-time = "%a %b %d    %I:%M %p"
-;time-alt = %B %d, %Y
-
-format = <label>
-label = %time%
-
-;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
-
-[module/network]
-type = internal/network
-
-interface = wlp3s0
-interval = 1.0
-
-;ping-interval = 3
-;;udspeed-minwidth = 5
-accumulate-stats = true
-unknown-as-up = true
-
-; Available tags:
-;   <label-connected> (default)
-;   <ramp-signal>
-format-connected = <ramp-signal>
-
-; Available tags:
-;   <label-disconnected> (default)
-format-disconnected = <label-disconnected>
-
-; Available tags:
-;   <label-connected> (default)
-;   <label-packetloss>
-;   <animation-packetloss>
-;;format-packetloss = <animation-packetloss> <label-connected>
-
-; Available tokens:
-;   %ifname%    [wireless+wired]
-;   %local_ip%  [wireless+wired]
-;   %local_ip6% [wireless+wired]
-;   %essid%     [wireless]
-;   %signal%    [wireless]
-;   %upspeed%   [wireless+wired]
-;   %downspeed% [wireless+wired]
-;   %linkspeed% [wired]
-; Default: %ifname% %local_ip%
-label-connected = 直
-
-; Available tokens:
-;   %ifname%    [wireless+wired]
-; Default: (none)
-label-disconnected = 睊
-label-disconnected-foreground = ${color.fg-alt}
-
-; Available tokens:
-;   %ifname%    [wireless+wired]
-;   %local_ip%  [wireless+wired]
-;   %local_ip6% [wireless+wired]
-;   %essid%     [wireless]
-;   %signal%    [wireless]
-;   %upspeed%   [wireless+wired]
-;   %downspeed% [wireless+wired]
-;   %linkspeed% [wired]
-; Default: (none)
-;label-packetloss = %essid%
-;label-packetloss-foreground = #eefafafa
-
-ramp-signal-0 = 直
-ramp-signal-1 = 直
-ramp-signal-2 = 直
-ramp-signal-3 = 直
-ramp-signal-4 = 直
-
-;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
-
-;;[module/applications]
-;;type = custom/text
-
-;;content = Applications
-;;content-background = ${color.bg}
-;;content-foreground = ${color.fg}
-;;content-padding = 4
-
-;;click-left = ~/.config/polybar/scripts/elementary-menu
-;;click-right = ~/.config/polybar/scripts/elementary-menu
-
-;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
-
-[module/sysmenu]
-type = custom/text
-
-content = 襤
-;;content-background = ${color.bg}
-content-foreground = ${color.fg}
-;;content-padding = 4
-
-click-left = ~/.config/polybar/scripts/elementary-sysmenu
-click-right = ~/.config/polybar/scripts/elementary-sysmenu
-
-;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
-
-[module/style]
-type = custom/text
-content = 
-
-click-left = ~/.config/polybar/scripts/elementary-style &
-click-right = ~/.config/polybar/scripts/elementary-style &
-
-;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
-;;	    __________  ______
-;;	   / ____/ __ \/ ____/
-;;	  / __/ / / / / /_    
-;;	 / /___/ /_/ / __/    
-;;	/_____/\____/_/       
-;;
-;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
-
+# i3 config file (v4)
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+
+# Set mod key (Mod1=<Alt>, Mod4=<Super>)
+set $mod Mod4
+
+# set default desktop layout (default is tiling)
+# workspace_layout tabbed <stacking|tabbed>
+
+# Configure border style <normal|1pixel|pixel xx|none|pixel>
+new_window pixel 1
+new_float normal
+
+# Hide borders
+hide_edge_borders none
+
+# change borders
+bindsym $mod+u border none
+bindsym $mod+y border pixel 1
+bindsym $mod+n border normal
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+font xft: Iosevka Nerd Font Mono 12
+
+# Use Mouse+$mod to drag floating windows
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec termite 
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# start program launcher
+#bindsym $mod+d exec --no-startup-id dmenu_recency
+bindsym $mod+d exec --no-startup-id rofi -theme ~/.config/rofi/dracula.rasi -show run
+# launch categorized menu
+bindsym $mod+z exec --no-startup-id morc_menu
+
+#Change keyboard layout
+exec_always --no-startup-id "setxkbmap -layout us,ru"
+exec_always --no-startup-id "setxkbmap -option 'grp:alt_shift_toggle'"
+
+################################################################################################
+## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
+################################################################################################
+
+exec --no-startup-id volumeicon
+bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
+#exec --no-startup-id pulseaudio
+#exec --no-startup-id pa-applet
+#bindsym $mod+Ctrl+m exec pavucontrol
+
+################################################################################################
+
+# Screen brightness controls
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 10"
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
+
+
+
+# Start Applications
+bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
+bindsym $mod+F2 exec firefox
+bindsym $mod+F3 exec pcmanfm
+# bindsym $mod+F3 exec ranger
+bindsym $mod+Shift+F3 exec gksu pcmanfm
+bindsym $mod+F5 exec terminal -e 'mocp'
+bindsym $mod+t exec --no-startup-id pkill compton
+bindsym $mod+Ctrl+t exec --no-startup-id compton -b
+bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
+bindsym Print exec --no-startup-id maim /home/ilia/Изображения/$(date +%s).png 
+bindsym $mod+Print --release exec --no-startup-id scrot -w
+bindsym $mod+Shift+Print --release exec --no-startup-id scrot -s
+#bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
+bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
+
+focus_follows_mouse no
+
+# change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# workspace back and forth (with/without active container)
+workspace_auto_back_and_forth yes
+bindsym $mod+b workspace back_and_forth
+bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
+
+# split orientation
+bindsym $mod+h split h;exec notify-send 'tile horizontally'
+bindsym $mod+v split v;exec notify-send 'tile vertically'
+bindsym $mod+q split toggle
+
+# toggle fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# toggle sticky
+bindsym $mod+Shift+s sticky toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# move the currently focused window to the scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym $mod+minus scratchpad show
+
+#navigate workspaces next / previous
+bindsym $mod+Ctrl+Right workspace next
+bindsym $mod+Ctrl+Left workspace prev
+
+# Workspace names
+# to display names or symbols instead of plain workspace numbers you can use
+# something like: set $ws1 1:mail
+#                 set $ws2 2:
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+
+# Move focused container to workspace
+bindsym $mod+Ctrl+1 move container to workspace $ws1
+bindsym $mod+Ctrl+2 move container to workspace $ws2
+bindsym $mod+Ctrl+3 move container to workspace $ws3
+bindsym $mod+Ctrl+4 move container to workspace $ws4
+bindsym $mod+Ctrl+5 move container to workspace $ws5
+bindsym $mod+Ctrl+6 move container to workspace $ws6
+bindsym $mod+Ctrl+7 move container to workspace $ws7
+bindsym $mod+Ctrl+8 move container to workspace $ws8
+
+# Move to workspace with focused container
+bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2; workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3; workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4; workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5; workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
+
+# Open applications on specific workspaces
+# assign [class="Thunderbird"] $ws1
+# assign [class="Pale moon"] $ws2
+# assign [class="Pcmanfm"] $ws3
+# assign [class="Skype"] $ws5
+
+# Open specific applications in floating mode
+for_window [title="alsamixer"] floating enable border pixel 1
+for_window [class="calamares"] floating enable border normal
+for_window [class="Clipgrab"] floating enable
+for_window [title="File Transfer*"] floating enable
+for_window [class="Galculator"] floating enable border pixel 1
+for_window [class="GParted"] floating enable border normal
+for_window [title="i3_help"] floating enable sticky enable border normal
+for_window [class="Lightdm-settings"] floating enable
+for_window [class="Lxappearance"] floating enable sticky enable border normal
+for_window [class="Manjaro-hello"] floating enable
+for_window [class="Manjaro Settings Manager"] floating enable border normal
+for_window [title="MuseScore: Play Panel"] floating enable
+for_window [class="Nitrogen"] floating enable sticky enable border normal
+for_window [class="Oblogout"] fullscreen enable
+for_window [class="octopi"] floating enable
+for_window [title="About Pale Moon"] floating enable
+for_window [class="Pamac-manager"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [class="qt5ct"] floating enable sticky enable border normal
+for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
+for_window [class="Simple-scan"] floating enable border normal
+for_window [class="(?i)System-config-printer.py"] floating enable border normal
+for_window [class="Skype"] floating enable border normal
+for_window [class="Timeset-gui"] floating enable border normal
+for_window [class="(?i)virtualbox"] floating enable border normal
+for_window [class="Xfburn"] floating enable
+
+# switch to workspace with urgent window automatically
+for_window [urgent=latest] focus
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# Set shut down, restart and locking features
+bindsym $mod+0 mode "$mode_system"
+set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id i3exit lock, mode "default"
+    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+    bindsym u exec --no-startup-id i3exit switch_user, mode "default"
+    bindsym e exec --no-startup-id i3exit logout, mode "default"
+    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+    bindsym r exec --no-startup-id i3exit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+
+    # exit system mode: "Enter" or "Escape"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+# Resize window (you can also use the mouse for that)
+bindsym $mod+r modr "resize"
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym h resize shrink width 5 px or 5 ppt
+        bindsym j resize grow height 5 px or 5 ppt
+        bindsym k resize shrink height 5 px or 5 ppt
+        bindsym l resize grow width 5 px or 5 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # exit resize mode: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+# Lock screen
+bindsym $mod+9 exec --no-startup-id blurlock
+
+# Autostart applications
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id nitrogen --restore; sleep 1; compton -b
+#exec --no-startup-id manjaro-hello
+exec --no-startup-id nm-applet
+exec --no-startup-id xfce4-power-manager
+exec --no-startup-id pamac-tray
+#exec --no-startup-id clipit
+exec --no-startup-id blueman-applet
+# exec_always --no-startup-id sbxkb
+exec --no-startup-id "conky -d"
+# exec --no-startup-id start_conky_green
+exec --no-startup-id xautolock -time 10 -locker blurlock
+exec_always --no-startup-id ff-theme-util
+exec_always --no-startup-id fix_xcursor
+exec --no-startup-id "polybar top-bar"
+# Color palette used for the terminal ( ~/.Xresources file )
+# Colors are gathered based on the documentation:
+# https://i3wm.org/docs/userguide.html#xresources
+# Change the variable name at the place you want to match the color
+# of your terminal like this:
+# [example]
+# If you want your bar to have the same background color as your 
+# terminal background change the line 362 from:
+# background #14191D
+# to:
+# background $term_background
+# Same logic applied to everything else.
+set_from_resource $term_background background
+set_from_resource $term_foreground foreground
+set_from_resource $term_color0     color0
+set_from_resource $term_color1     color1
+set_from_resource $term_color2     color2
+set_from_resource $term_color3     color3
+set_from_resource $term_color4     color4
+set_from_resource $term_color5     color5
+set_from_resource $term_color6     color6
+set_from_resource $term_color7     color7
+set_from_resource $term_color8     color8
+set_from_resource $term_color9     color9
+set_from_resource $term_color10    color10
+set_from_resource $term_color11    color11
+set_from_resource $term_color12    color12
+set_from_resource $term_color13    color13
+set_from_resource $term_color14    color14
+set_from_resource $term_color15    color15
+
+# Start i3bar to display a workspace bar (plus the system information i3status if available)
+bar {
+	i3bar_command i3bar
+	status_command i3status
+	position top
+
+# please set your primary output first. Example: 'xrandr --output eDP1 --primary'
+	tray_output primary
+	tray_output eDP1
+
+	bindsym button4 nop
+	bindsym button5 nop
+   font xft:URWGothic-Book 11
+	strip_workspace_numbers yes
+
+   colors {
+        background #2E3440
+        statusline #D8DEE9
+        separator  #2E3440
+
+#                          border  backgr. text
+        focused_workspace  #2E3440 #3B4252 #D8DEE9
+        active_workspace   #2E3440 #3B4252 #D8DEE9
+        inactive_workspace #595B5B #222D31 #EEE8D5
+        binding_mode       #16a085 #2C2C2C #F9FAF9
+        urgent_workspace   #16a085 #FDF6E3 #E5201D
+    }
+}
+
+# hide/unhide i3status bar
+bindsym $mod+m bar mode toggle
+
+# Theme colors
+# class                   border  backgr. text    indic.   child_border
+  client.focused          #556064 #556064 #80FFF9 #FDF6E3
+  client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
+  client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
+  client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
+  client.placeholder      #000000 #0c0c0c #ffffff #000000 
+
+  client.background       #2B2C2B
+
+#############################
+### settings for i3-gaps: ###
+#############################
+
+# Set inner/outer gaps
+#gaps inner 14
+#gaps outer -2
+
+# Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
+# gaps inner|outer current|all set|plus|minus <px>
+# gaps inner all set 10
+# gaps outer all plus 5
+
+# Smart gaps (gaps used if only more than one container on the workspace)
+#smart_gaps on
+
+# Smart borders (draw borders around container only if it is not the only container on this workspace) 
+# on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
+#smart_borders on
+
+# Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
+#set $mode_gaps Gaps: (o) outer, (i) inner
+#set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+#set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+#bindsym $mod+Shift+g mode "$mode_gaps"
+
+#mode "$mode_gaps" {
+#        bindsym o      mode "$mode_gaps_outer"
+#        bindsym i      mode "$mode_gaps_inner"
+#        bindsym Return mode "default"
+#        bindsym Escape mode "default"
+#}
+#mode "$mode_gaps_inner" {
+#        bindsym plus  gaps inner current plus 5
+#        bindsym minus gaps inner current minus 5
+#        bindsym 0     gaps inner current set 0
+#
+#        bindsym Shift+plus  gaps inner all plus 5
+#        bindsym Shift+minus gaps inner all minus 5
+#        bindsym Shift+0     gaps inner all set 0
+#
+#        bindsym Return mode "default"
+#        bindsym Escape mode "default"
+#}
+#mode "$mode_gaps_outer" {
+#        bindsym plus  gaps outer current plus 5
+#        bindsym minus gaps outer current minus 5
+#        bindsym 0     gaps outer current set 0
+#
+#        bindsym Shift+plus  gaps outer all plus 5
+#        bindsym Shift+minus gaps outer all minus 5
+#        bindsym Shift+0     gaps outer all set 0
+#
+#        bindsym Return mode "default"
+#        bindsym Escape mode "default"
+#}
+exec --no-startup-id feh --bg-scale /home/ilia/Изображения/5401.jpg
+exec "touchpad-indicator"
