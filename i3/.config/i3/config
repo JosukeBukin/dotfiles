@@ -27,7 +27,7 @@ font xft: Iosevka Nerd Font Mono 12
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec termite -e /bin/zsh 
+bindsym $mod+Return exec alacritty 
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -57,8 +57,8 @@ bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 bindsym XF86MonBrightnessUp exec brightnessctl s 10%+
 bindsym XF86MonBrightnessDown exec brightnessctl s 10%-
 # Change volume
-bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 1+ unmute"
-bindsym XF86AudioLowerVolume exec "amixer -q sset Master,0 1- unmute"
+bindsym XF86AudioRaiseVolume exec "amixer set Master -q 1%+"
+bindsym XF86AudioLowerVolume exec "amixer set Master -q 1%-"
 bindsym XF86AudioMute exec amixer -q set Master toggle
 # Toggle touchpad
 bindsym XF86TouchpadToggle exec $HOME/.config/i3/scripts/toggle-touchpad.sh
