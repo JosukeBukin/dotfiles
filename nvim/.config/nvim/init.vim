@@ -1,29 +1,25 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"Plug 'zchee/deoplete-clang'
-"Plug 'deoplete-plugins/deoplete-jedi'
 Plug 'klen/python-mode'
-Plug 'vim-syntastic/syntastic'
-"Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
-Plug 'Shougo/neco-vim'
-Plug 'stevearc/vim-arduino'
-Plug 'sudar/vim-arduino-syntax'
 Plug 'sudar/vim-arduino-snippets'
-"Plug 'Shougo/neosnippet.vim'
-"Plug 'Shougo/neosnippet-snippets'
+Plug 'jacoborus/tender.vim'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'KabbAmine/vCoolor.vim'
 call plug#end()
 set number
 syntax on
-let base16colorspace=256  " Access colors present in 256 colorspace
-colorscheme base16-default-dark
+"Colorschemes
+"let base16colorspace=256  " Access colors present in 256 colorspace
+"colorscheme base16-default-dark
+if (has("termguicolors"))
+ set termguicolors
+endif
+colorscheme tender
 
 set noswapfile
 set expandtab
@@ -220,19 +216,6 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-
-"Check syntax
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_python_checkers = ['pylint']
-
-let g:arduino_dir="/usr/share/arduino"
 
 "Keybinds
 map <F8> :NERDTreeToggle<CR>
