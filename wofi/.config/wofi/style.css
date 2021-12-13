@@ -1,0 +1,40 @@
+window {
+	border: 2px solid #d8a657;
+	background-color: #282828;
+}
+
+#input {
+	border: 2px solid #282828;
+	background-color: #282828;
+	font-size: 18px;
+	color: #FFFFFF;
+}
+
+#inner-box {}
+
+#outer-box {
+	margin: 10px;
+}
+
+#scroll {
+	margin: 5px 0px;
+	font-size: 16px;
+	color: #e2d3ba;
+}
+
+#scroll label {
+	margin: 4px 0px;
+}
+
+#entry:selected {
+	background-color: #d8a657;
+	color: #282828;
+}
+
+#text {
+	border: 0px;
+}
+
+#text:selected {
+	color: #282828;
+}
