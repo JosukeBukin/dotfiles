@@ -37,6 +37,7 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status battery)
 #Aliases
 alias nvi=__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia
 alias vifm=vifmrun
+alias ls=lsd
 
 #Binds
 bindkey    "^[[3~"          delete-char
@@ -50,3 +51,19 @@ bindkey    "^[[4~"          end-of-line
 source ~/.zsh/nnn.zsh
 
 [ -f "/home/ilia/.ghcup/env" ] && source "/home/ilia/.ghcup/env" # ghcup-env
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/ilia/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/ilia/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/ilia/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/ilia/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

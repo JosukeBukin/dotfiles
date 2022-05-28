@@ -219,7 +219,8 @@ label:focus {
 }
 
 #mpd.disconnected {
-    background-color: #f53c3c;
+    background-color: transparent;
+    color: transparent;
 }
 
 #mpd.stopped {
