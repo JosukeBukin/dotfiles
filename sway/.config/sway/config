@@ -78,6 +78,10 @@ input "1267:5:Elan_Touchpad" {
     tap enabled
 }
 
+input "2522:23868:COMPANY_USB_Device" {
+    accel_profile flat
+}
+
 
 #
 # Gaps and borders

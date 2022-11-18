@@ -4,17 +4,17 @@ export PATH="/home/ilia/.local/bin:$PATH"
 export PATH="/home/ilia/.local/bin/status:$PATH"
 export PATH="/home/ilia/.cargo/bin:$PATH"
 export TERM=xterm-256color
-source ~/antigen.zsh
-source ~/.zsh/icons.zsh
-POWERLEVEL9K_MODE='nerdfont-complete'
 
-###
-antigen bundle bhilburn/powerlevel9k
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle srijanshetty/zsh-pip-completion
-antigen theme bhilburn/powerlevel9k powerlevel9k
-antigen apply
-###
+# Load completion
+autoload -U compinit; compinit
+
+# Plugins
+fpath=($HOME/.zsh/plugins/zsh-completions/src $fpath)
+fpath=($HOME/.zsh/plugins/gentoo-zsh-completions/src $fpath)
+source $HOME/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Load prompt
+source $HOME/.zsh/prompt.zsh
 
 HISTFILE="$HOME/.zsh_history"
 SAVEHIST=2500
@@ -26,28 +26,24 @@ HISTSIZE=2500
 #    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
 #  eval "$("$BASE16_SHELL/profile_helper.sh")"
 ###
-###
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status battery)
-###
 
-## Autojump
+# Autojump
 [[ -s /etc/profile.d/autojump.zsh ]] && source /etc/profile.d/autojump.zsh
 
-#Aliases
+# Aliases
 alias nvi=__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia
 alias vifm=vifmrun
-alias ls=lsd
+# alias ls=lsd
 
-#Binds
+# Binds
 bindkey    "^[[3~"          delete-char
 bindkey    "^[3;5~"         delete-char
 bindkey    "^[[H"           beginning-of-line
 bindkey    "^[[4~"          end-of-line
-#FZF
+# FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-#nnn
+# nnn
 source ~/.zsh/nnn.zsh
 
 [ -f "/home/ilia/.ghcup/env" ] && source "/home/ilia/.ghcup/env" # ghcup-env
@@ -67,3 +63,7 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# pmbootstrap
+autoload bashcompinit
+bashcompinit
+eval "$(register-python-argcomplete pmbootstrap)"
