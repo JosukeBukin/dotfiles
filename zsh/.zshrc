@@ -33,6 +33,8 @@ HISTSIZE=2500
 # Aliases
 alias nvi=__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia
 alias vifm=vifmrun
+alias ls='nnn -e'
+alias cat=bat
 # alias ls=lsd
 
 # Binds
@@ -44,7 +46,7 @@ bindkey    "^[[4~"          end-of-line
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # nnn
-source ~/.zsh/nnn.zsh
+source $HOME/.zsh/nnn.zsh
 
 [ -f "/home/ilia/.ghcup/env" ] && source "/home/ilia/.ghcup/env" # ghcup-env
 
@@ -62,8 +64,3 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
-# pmbootstrap
-autoload bashcompinit
-bashcompinit
-eval "$(register-python-argcomplete pmbootstrap)"
