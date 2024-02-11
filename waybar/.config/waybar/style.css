@@ -175,6 +175,12 @@ window#waybar.solo #workspaces button { border-radius: 5px; }
   background-color: @bg;
 }
 
+#language {
+    border-radius: 7px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 /* #tray { */
 /*   margin: 5px; */
 /*   padding: 2px; */

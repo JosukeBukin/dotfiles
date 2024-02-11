@@ -7,6 +7,7 @@
   ],
   "modules-center": [],
   "modules-right": [
+    "hyprland/language",
     "network",
     "pulseaudio",
     "clock",
@@ -39,6 +40,11 @@
     "format": "",
     "on-click": "wofi",
     "tooltip": false
+  },
+  "hyprland/language": {
+    "format": "{}",
+    "format-en": "us",
+    "format-ru": "ru"
   },
   "clock": {
     "format": "<span foreground='#DDB6F2'> </span><span> {:%H:%M %p}</span>",
