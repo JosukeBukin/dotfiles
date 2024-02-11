@@ -1,6 +1,9 @@
-font=Roboto 10
-background-color=#282828
-text-color=#FFFFFF
-border-size=2
-border-color=#d8a657
-default-timeout=3000
+font=Fira Code Nerd Font Mono 14
+
+background-color=#1e1e2e
+text-color=#cdd6f4
+border-color=#89b4fa
+progress-color=over #313244
+
+[urgency=high]
+border-color=#fab387
