@@ -4,6 +4,7 @@ export PATH="/home/ilia/.local/bin:$PATH"
 export PATH="/home/ilia/.local/bin/status:$PATH"
 export PATH="/home/ilia/.cargo/bin:$PATH"
 export TERM=xterm-256color
+export EDITOR=vim
 
 # Load completion
 autoload -U compinit; compinit
@@ -33,9 +34,8 @@ HISTSIZE=2500
 # Aliases
 alias nvi=__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia
 alias vifm=vifmrun
-alias ls='nnn -e'
 alias cat=bat
-# alias ls=lsd
+alias ls=lsd
 
 # Binds
 bindkey    "^[[3~"          delete-char
