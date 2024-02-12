@@ -52,8 +52,20 @@
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "format-alt": "<span foreground='#96CDFB'>󰃭 </span><span> {:%I:%M %p  %a %d}</span>"
   },
-  "network": {
+  "network#work": {
     "interface": "enp1s0",
+    "format": "Loading",
+    "format-wifi": "<span></span>",
+    "format-ethernet": "<span>󰈀</span>",
+    "format-linked": "<span>󰈀</span>",
+    "format-disconnected": "<span>󰈂</span>",
+    "tooltip-format-linked": "{ifname}  ",
+    "tooltip-format-disconnected": "Disconnected",
+    "tooltip-format-wifi": "Signal Strenght: {signalStrength}% ",
+    "tooltip-format-ethernet": "{ifname}  "
+  },
+  "network#home": {
+    "interface": "eth0",
     "format": "Loading",
     "format-wifi": "<span></span>",
     "format-ethernet": "<span>󰈀</span>",
