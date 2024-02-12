@@ -10,6 +10,7 @@
     "hyprland/language",
     "network",
     "pulseaudio",
+    "battery",
     "clock",
     "tray"
   ],
@@ -49,15 +50,15 @@
   "clock": {
     "format": "<span foreground='#DDB6F2'> </span><span> {:%H:%M %p}</span>",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format-alt": "<span foreground='#96CDFB'> </span><span> {:%I:%M %p  %a %d}</span>"
+    "format-alt": "<span foreground='#96CDFB'>󰃭 </span><span> {:%I:%M %p  %a %d}</span>"
   },
   "network": {
-    "interface": "eth0",
+    "interface": "enp1s0",
     "format": "Loading",
     "format-wifi": "<span></span>",
-    "format-ethernet": "<span></span>",
-    "format-linked": "<span></span>",
-    "format-disconnected": "<span>睊</span>",
+    "format-ethernet": "<span>󰈀</span>",
+    "format-linked": "<span>󰈀</span>",
+    "format-disconnected": "<span>󰈂</span>",
     "tooltip-format-linked": "{ifname}  ",
     "tooltip-format-disconnected": "Disconnected",
     "tooltip-format-wifi": "Signal Strenght: {signalStrength}% ",
@@ -66,7 +67,7 @@
   "pulseaudio": {
     "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
     "format": "<span size='13000' foreground='#FAE3B0'>{icon} </span><span> {volume}%</span>",
-    "format-muted": "<span size='14000'>ﱝ</span>",
+    "format-muted": "<span size='14000'>󰖁</span>",
     "format-icons": {
       "headphone": "",
       "hands-free": "",
@@ -74,7 +75,7 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": ["奔", "墳"]
+      "default": ["󰖀", "󰝟"]
     },
     "on-click-right": "pavucontrol"
   },
@@ -90,6 +91,18 @@
       "Playing": "<span foreground='#ABE9B3'></span>",
       "Paused": "<span foreground='#E8A2AF'></span>"
     }
+  },
+  "battery": {
+    "bat": "BAT0",
+    "interval": 60,
+    "states": {
+        "warning": 30,
+        "critical": 15
+    },
+    "format": "{capacity}% {icon}",
+    "format-icons": ["󰁺", "󰁼", "󰁾", "󰂁", "󰁹"],
+    "format-charging-icon": "󰂅",
+    "max-length": 25
   },
   "tray": {
     "icon-size": 24,
