@@ -48,6 +48,9 @@ bindkey    "^[[4~"          end-of-line
 # nnn
 source $HOME/.zsh/nnn.zsh
 
+# Zoxide
+eval "$(zoxide init --cmd cd zsh)"
+
 [ -f "/home/ilia/.ghcup/env" ] && source "/home/ilia/.ghcup/env" # ghcup-env
 
 # >>> conda initialize >>>
