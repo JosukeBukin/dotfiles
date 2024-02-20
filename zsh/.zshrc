@@ -36,6 +36,7 @@ alias nvi=__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia
 alias vifm=vifmrun
 alias cat=bat
 alias ls=lsd
+alias vim=nvim
 
 # Binds
 bindkey    "^[[3~"          delete-char
