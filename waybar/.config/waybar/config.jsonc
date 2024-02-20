@@ -87,7 +87,7 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": ["󰖀", "󰝟"]
+      "default": ["󰖀", "󰕾"]
     },
     "on-click-right": "pavucontrol"
   },
