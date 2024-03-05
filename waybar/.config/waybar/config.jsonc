@@ -1,6 +1,7 @@
 // vim:set ft=jsonc:
 {
   "position": "top",
+  "outputs": ["eDP-1", "HDMI-1"],
   "modules-left": [
     "hyprland/workspaces",
     "hyprland/window"
@@ -16,7 +17,7 @@
   ],
   // Modules configuration
   "hyprland/workspaces": {
-    "all-outputs": true,
+    "all-outputs": false,
     "enable-bar-scroll": true,
     "format": "{icon}",
     "persistent-workspaces": {
@@ -32,6 +33,11 @@
       "3": "三",
       "4": "四",
       "5": "五",
+      "11": "一",
+      "12": "二",
+      "13": "三",
+      "14": "四",
+      "15": "五",
       "default": "",
       "urgent": "",
       "active": ""
@@ -50,7 +56,7 @@
   "clock": {
     "format": "<span foreground='#DDB6F2'> </span><span> {:%H:%M %p}</span>",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format-alt": "<span foreground='#96CDFB'>󰃭 </span><span> {:%I:%M %p  %a %d}</span>"
+    "format-alt": "<span foreground='#96CDFB'>󰃭 </span><span> {:%H:%M %p  %a %d}</span>"
   },
   "network#work": {
     "interface": "enp1s0",
@@ -106,14 +112,12 @@
   },
   "battery": {
     "bat": "BAT0",
-    "interval": 60,
     "states": {
         "warning": 30,
         "critical": 15
     },
     "format": "{capacity}% {icon}",
     "format-icons": ["󰁺", "󰁼", "󰁾", "󰂁", "󰁹"],
-    "format-charging-icon": "󰂅",
     "max-length": 25
   },
   "tray": {

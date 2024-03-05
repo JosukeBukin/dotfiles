@@ -34,7 +34,7 @@ HISTSIZE=2500
 # Aliases
 alias nvi=__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia
 alias vifm=vifmrun
-alias cat=bat
+#alias cat=bat
 alias ls=lsd
 alias vim=nvim
 
