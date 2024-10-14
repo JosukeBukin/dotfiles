@@ -1,0 +1,147 @@
+Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: true 
+Xft.lcdfilter: lcddefault
+!==========XTERM==========!
+XTerm*renderFont: true
+XTerm*faceName: xft: FiraCode\ Nerd\ Font\ Mono:size=11
+xterm*charClass: 33:48,35:48,37:48,43:48,45-47:48,64:48,95:48,126:48
+
+!==========URXVT==========!
+
+!! Extensions
+Urxvt.perl-ext-common: default,clipboard
+
+URxvt.internalBorder: 0
+URxvt.iconName:          urxvt
+URxvt.iconFile:          /usr/share/icons/Papirus-Dark/48x48/apps/urxvt.svg
+URxvt.externalBorder:    1
+!URxvt.lineSpace:        0
+!URxvt*shading:          30
+URxvt.depth:             32
+URxvt.saveLines:         10000
+URxvt*geometry:          80x25
+URxvt*terminalName:      rxvt-unicode-256color
+URxvt*visualBell:        false
+
+!! Scrollbar
+!URxvt.scrollStyle:      rxvt
+URxvt.scrollBar:         false
+URxvt*scrollTtyOutput:   false
+URxvt*scrollWithBuffer:  true
+URxvt*scrollTtyKeypress: true
+URxvt*transparent: false
+!URxvt*shading: 70
+
+!! Fonts
+
+URxvt*font: xft: FiraCode\ Nerd\ Font\ Mono:size=11
+!URxvt*boldFont:          xft:Inconsolata Nerd Font:Bold:size=12
+!URxvt*italicFont:        xft:Inconsolata Nerd Font:Regular:size=12
+!URxvt*boldItalicFont:    xft:Inconsolata Nerd Font:Regular:size=12
+
+URxvt.letterSpace:       false 
+
+!! Keybinding
+URxvt.keysym.C-Up:       perl:font-size:increase
+URxvt.keysym.C-Down:     perl:font-size:decrease
+URxvt.keysym.C-S-Up:     perl:font-size:incglobal
+URxvt.keysym.C-S-Down:   perl:font-size:decglobal
+!Home and End keys to jump to the beginning and end of lines
+URxvt*keysym.Home:       \033[1~
+URxvt*keysym.End:        \033[4~
+URxvt.clipboard.autocopy: true
+URxvt.keysym.Control-Shift-c: perl:clipboard:copy
+URxvt.keysym.Control-Shift-v: perl:clipboard:paste
+
+
+!! Tabs
+URxvt.tabbed.tabbar-bg:  -1
+URxvt.tabbed.tabbar-fg:  -2
+URxvt.tabbed.tab-bg:     -2
+URxvt.tabbed.tab-fg:     -1
+URxvt.tabbed.title-bg:   -1
+URxvt.tabbed.title-fg:   -2
+URxvt.tabbed.autohide:   true
+URxvt.tabbed.new-button: false
+URxvt.tabbed.title:      true
+
+!! Disable the stupid ctrl+shift 'feature'
+URxvt.iso14755:            false
+URxvt.iso14755_52:         false
+
+!! Cursor
+URxvt.cursorBlink:         1
+URxvt.colorUL:             #83a598
+Xcursor.theme: xcursor-breeze
+
+!! Pointer
+!URxvt.pointerBlank: true
+
+! pixels for external border
+URxvt*externalBorder:     0
+! pixels for internal border
+URxvt*internalBorder:     2
+
+!Colors
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! Gruvbox Material Dark
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! hard
+! *background: #1d2021
+! medium
+*background: #282828
+! soft
+! *background: #32302f
+
+*foreground: #d4be98
+
+! Black + DarkGrey
+*color0:  #32302f
+*color8:  #32302f
+! DarkRed + Red
+*color1:  #ea6962
+*color9:  #ea6962
+! DarkGreen + Green
+*color2:  #a9b665
+*color10: #a9b665
+! DarkYellow + Yellow
+*color3:  #e78a4e
+*color11: #e78a4e
+! DarkBlue + Blue
+*color4:  #7daea3
+*color12: #7daea3
+! DarkMagenta + Magenta
+*color5:  #d3869b
+*color13: #d3869b
+! DarkCyan + Cyan
+*color6:  #89b482
+*color14: #89b482
+! LightGrey + White
+*color7:  #d4be98
+*color15: #d4be98
+
+!==========ROFI==========!
+rofi.color-enabled: true
+rofi.color-window: argb:aa1c1d21, #751c1d21, argb:001c1d21
+rofi.color-normal: argb:001c1d21, #cbcdd2, argb:001c1d21, argb:c2d6d8db, #222222
+rofi.color-active: argb:4d1b2b34, #6699cc, argb:4d343d46, argb:4d6699cc, #d8dee9
+rofi.color-urgent: argb:4d1b2b34, #ec5f67, argb:4d343d46, argb:4dec5f67, #d8dee9
+
+rofi.modi: run,ssh,window
+rofi.separator-style: solid
+rofi.show-icons: true
+rofi.drun-icon-theme: Papirus-Dark
+rofi.font: Inconsolata Nerd Font Mono 12
+rofi.sidebar-mode:    true
+rofi.padding:         0
+rofi.bw:              10
+rofi.scrollbar-width: 0
+rofi.line-margin:     0
+rofi.lines: 10
+rofi.terminal: urxvt
+rofi.case-sensitive: false
+rofi.run-command: fish -c '{cmd}'
+rofi.run-list-command: 'fish -c functions'
