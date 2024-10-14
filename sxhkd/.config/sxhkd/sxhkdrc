@@ -1,0 +1,24 @@
+## Toggle-Touchpad
+#XF86TouchpadToggle
+#    exec toggle-touchpad.sh
+## Brightness Control
+# XF86MonBrightnessUp
+#    exec brightnessctl s 10%+
+# XF86MonBrightnessDown
+#    exec brightnessctl s 10%-
+## Change Volume
+XF86AudioRaiseVolume
+    exec pamixer -i 5
+XF86AudioLowerVolume
+    exec pamixer -d 5
+XF86AudioMute
+    exec pamixer -t 
+## Start default apps
+super + F1
+    exec chromium-bin 
+super + F2
+    exec pcmanfm
+super + shift + m 
+    exec footclient -e neomutt
+super + n
+    exec footclient -e nmtui
