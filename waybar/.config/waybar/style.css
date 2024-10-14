@@ -1,0 +1,192 @@
+@import url("mocha.css");
+
+
+* {
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  font-family: "Fira Code Nerd Font Mono";
+  font-size: 12pt;
+  padding-bottom: 1px;
+  padding-top: 1px;
+}
+
+tooltip {
+  background: @base;
+  border-radius: 7px;
+  border: 2px solid @blue;
+}
+
+window#waybar {
+  background-color: transparent;
+  color: @lavender;
+}
+
+window#waybar.solo {
+  background-color: @base;
+  color: @lavender;
+}
+
+window#waybar.solo #workspaces button { border-radius: 5px; }
+
+#custom-scratchpad_indicator {
+  margin: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 7px;
+  background-color: @base;
+  color: @lavender;
+}
+
+#mode {
+  margin: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 7px;
+  background-color: @surface0;
+  color: @peach;
+}
+
+#workspaces {
+  background-color: @surface0;
+  margin-left: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 7px;
+}
+
+#workspaces button {
+  padding-left: 10px;
+  padding-right: 10px;
+  min-width: 0;
+  background-color: @surface0;
+  color: @lavender;
+}
+
+#workspaces button.current_output {
+  color: @lavender;
+}
+
+#workspaces button.active {
+  background-color: @flamingo;
+  border-color: @flamingo;
+  color: @crust;
+  border-radius: 7px;
+}
+
+#workspaces button.urgent {
+  background-color: @peach;
+  border-color: @peach;
+  color: @crust;
+}
+
+#workspaces button:hover {
+  background: @base-hover;
+  border-color: @base-hover;
+  color: @flamingo;
+}
+
+#workspaces button:first-child:hover,
+#workspaces button.focused:first-child,
+#workspaces button.urgent:first-child {
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+}
+#workspaces button:last-child:hover,
+#workspaces button.focused:last-child,
+#workspaces button.urgent:last-child {
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+
+#network {
+  margin: 5px;
+  padding-left: 10px;
+  padding-right: 15px;
+  border-radius: 7px;
+  color: @mantle;
+}
+#network.wifi,
+#network.ethernet {
+  background-color: @green;
+}
+#network.linked {
+  background-color: @peach;
+}
+#network.disconnected,
+#network.disabled {
+  background-color: @red;
+}
+
+#pulseaudio {
+  margin: 5px;
+  padding-left: 10px;
+  padding-right: 15px;
+  border-radius: 7px;
+  color: @lavender;
+  background-color: @surface0;
+}
+
+#custom-playerctl {
+  margin: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 7px;
+  color: @lavender;
+  background-color: @base;
+}
+
+#pulseaudio.muted {
+  background-color: @red;
+  color: @crust;
+}
+
+#clock {
+  margin: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 7px;
+  color: @lavender;
+  background-color: @surface0;
+}
+
+#language {
+  margin: 5px;
+  border-radius: 7px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: @surface0;
+  color: @lavender
+}
+
+#battery {
+  margin: 5px;
+  border-radius: 7px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: @surface0;
+  color: @lavender;
+}
+
+#battery.charging {
+  background-color: @green;
+  color: @crust;
+}
+
+#battery.warning {
+  background-color: @peach;
+}
+
+#battery.critical {
+  background-color: @red;
+}
+
+#tray {
+   margin: 5px;
+   padding: 5px;
+   border-radius: 7px;
+   background-color: @surface0;
+}
+
+/* bottom waybar */

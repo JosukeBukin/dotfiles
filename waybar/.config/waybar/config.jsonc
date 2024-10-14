@@ -1,0 +1,111 @@
+// vim:set ft=jsonc:
+{
+  "position": "top",
+  "modules-left": [
+    "hyprland/workspaces"
+  ],
+  "modules-center": [
+    "hyprland/window"
+  ],
+  "modules-right": [
+    "hyprland/language",
+    "network",
+    "pulseaudio",
+    "battery",
+    "clock",
+    "tray"
+  ],
+  // Modules configuration
+  "hyprland/workspaces": {
+    "all-outputs": true,
+    "enable-bar-scroll": true,
+    "format": "{icon}",
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": []
+    },
+    "format-icons": {
+      "1": "一",
+      "2": "二",
+      "3": "三",
+      "4": "四",
+      "5": "五",
+      "default": "",
+      "urgent": "",
+      "active": ""
+    }
+  },
+  "custom/arch-pill": {
+    "format": "",
+    "on-click": "wofi",
+    "tooltip": false
+  },
+  "hyprland/language": {
+    "format": "{}",
+    "format-en": "us",
+    "format-ru": "ru"
+  },
+  "clock": {
+    "format": "<span foreground='#DDB6F2'> </span><span> {:%H:%M %p}</span>",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "<span foreground='#96CDFB'>󰃭 </span><span> {:%I:%M %p  %a %d}</span>"
+  },
+  "network": {
+    "format": "Loading",
+    "format-wifi": "<span></span>",
+    "format-ethernet": "<span>󰈀</span>",
+    "format-linked": "<span>󰈀</span>",
+    "format-disconnected": "<span>󰈂</span>",
+    "tooltip-format-linked": "{ifname}  ",
+    "tooltip-format-disconnected": "Disconnected",
+    "tooltip-format-wifi": "Signal Strenght: {signalStrength}% ",
+    "tooltip-format-ethernet": "{ifname}  "
+  },
+  "pulseaudio": {
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "format": "<span size='13000' foreground='#FAE3B0'>{icon} </span><span> {volume}%</span>",
+    "format-muted": "<span size='14000'>󰖁</span>",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["󰖀", "󰕾"]
+    },
+    "on-click-right": "pavucontrol"
+  },
+  "custom/playerctl": {
+    "format": "{icon}  <span>{}</span>",
+    "return-type": "json",
+    "max-length": 70,
+    "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} ~ {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+    "on-click-middle": "playerctl play-pause",
+    "on-click": "playerctl previous",
+    "on-click-right": "playerctl next",
+    "format-icons": {
+      "Playing": "<span foreground='#ABE9B3'></span>",
+      "Paused": "<span foreground='#E8A2AF'></span>"
+    }
+  },
+  "battery": {
+    "bat": "BAT0",
+    "interval": 60,
+    "states": {
+        "warning": 30,
+        "critical": 15
+    },
+    "format": "{capacity}% {icon}",
+    "format-icons": ["󰁺", "󰁼", "󰁾", "󰂁", "󰁹"],
+    "format-charging-icon": "󰂅",
+    "max-length": 25
+  },
+  "tray": {
+    "icon-size": 24,
+    "reverse-direction": true
+  }
+}
